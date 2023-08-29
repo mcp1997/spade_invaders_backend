@@ -1,17 +1,20 @@
 const users = [
   { 
     username: 'matt6288',
-    password: '$2a$10$dFwWjD8hi8K2I9/Y65MWi.WU0qn9eAVaiBoRSShTvuJVGw8XpsCiq', //replace with password from code ASAP
+    password: '$2a$08$7moM8yEIEVTozCQjRjybVelDcn88Sc1G2pwOnpp1KZc3Ocyn4du.u',
+    // password '1234'
     role_id: 1
   },
   {
     username: 'ally2559',
-    password: '$2a$10$dFwWjD8hi8K2I9/Y65MWi.WU0qn9eAVaiBoRSShTvuJVGw8XpsCiq', //replace with password from code ASAP
+    password: '$2a$08$z9Ef4tBIZfzy2DWKAfwDGOIzlrCwimomB7cxjGEdMMmLyIFwEnDrS',
+    // password '1234'
     role_id: 1
   },
   {
     username: 'lily5459',
-    password: '$2a$10$dFwWjD8hi8K2I9/Y65MWi.WU0qn9eAVaiBoRSShTvuJVGw8XpsCiq', //replace with password from code ASAP
+    password: '$2a$08$lzDn.tnX4W81iWDBfxGfBeS/OdIDlpQkflqPe0XlwkWFvoc82RQLC',
+    // password '1234'
     role_id: 2
   }
 ]
