@@ -3,6 +3,19 @@ const Users = require('../users/users-model')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const { JWT_SECRET } = require('../secrets')
+const { verifyUserExists } = require('./auth-middleware')
+
+const buildToken = user => {
+  const payload = {
+    subject: user.user_id,
+    role_name: user.role_name,
+    username: user.username,
+  }
+  const options = {
+    expiresIn: '1d',
+  }
+  return jwt.sign(payload, JWT_SECRET, options)
+}
 
 router.post('/register', (req, res, next) => {
   const { username, password } = req.body
@@ -12,6 +25,19 @@ router.post('/register', (req, res, next) => {
       res.status(201).json(created)
     })
     .catch(next)
+})
+
+router.post('/login', verifyUserExists, (req, res, next) => {
+  const { password } = req.body
+  if(bcrypt.compareSync(password, req.user.password)) {
+    const token = buildToken(req.user)
+    res.json({
+      message: `Welcome back, Cadet ${req.user.username}!`,
+      token
+    })
+  } else {
+    next({ status: 401, message: 'Invalid Credentials' })
+  }
 })
 
 router.use((err, req, res, next) => { // eslint-disable-line
