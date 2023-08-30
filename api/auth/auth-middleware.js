@@ -7,7 +7,7 @@ const verifyNewUser = (req, res, next) => {
   if(!username || !password) {
     next({ status: 422, message: 'Username and Password Required' })
   } else if(username.length < 4 || password.length < 4 ) {
-    next({ status: 422, message: 'Username and Password must be longer than 4 characaters' })
+    next({ status: 422, message: 'Username and Password must be longer than 4 characters' })
   } else {
     next()
   }
