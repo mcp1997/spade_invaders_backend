@@ -25,6 +25,8 @@ const roles = [
 ]
 
 exports.seed = async function (knex) {
+  await knex('users').truncate()
+  await knex('roles').truncate()
   await knex('roles').insert(roles)
   await knex('users').insert(users)
 }
